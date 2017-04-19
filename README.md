@@ -12,12 +12,20 @@ Hardware
 - [Raspberry PI 3](https://www.raspberrypi.org/)
 - [MPU-6050](https://www.sparkfun.com/products/11028) - SparkFun Triple Axis Accelerometer and Gyro Breakout 
 
-| RPi         | MPU-6050 |
-| ----------- | -------- |
-| GND         |      GND |
-| 3.3v        |      VCC |
-| SCL/PIN #2  |      SCL |
-| SDA/PIN #3  |      SDA |
+| RPi         | MPU-6050 | Arduino | WS2812  |
+| ----------- | -------- | --------| --------|
+| GND         |      GND |     GND |     GND |
+| 3.3v        |      VCC |         |         |
+| SCL/PIN #2  |      SCL |         |         |
+| SDA/PIN #3  |      SDA |         |         |
+| PIN #24     |          |   Pin 5 |         |
+|             |          |   Pin 6 | Data IN |
+|             |          |      5V |      5V |
 
 
 ![Raspberry pi diagram](https://raw.githubusercontent.com/funvill/MovingPi/master/rpi_drawing_bb.png)
+
+Heartbeat
+-------------
+
+[Video of heartbeat LEDs](https://www.instagram.com/p/BTDbGdrBdWt/)
