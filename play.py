@@ -9,10 +9,12 @@ from time import sleep
 import time, sys
 from pygame import mixer
 
+import RPi.GPIO as GPIO # always needed with RPi.GPIO  
+
 ''' Version info''' 
 
-print "Version: 0.0.1"
-print "Last updated: April 17, 2017"
+print "Version: 0.0.2"
+print "Last updated: April 18, 2017"
 
 
 # Power management registers
@@ -77,6 +79,14 @@ timer_current = 0 ;
 setting_move_amount = 10 
 setting_move_timer  = 10 
 
+print "Setting up LEDs "
+
+GPIO.cleanup()  
+GPIO.setmode(GPIO.BCM)  # choose BCM or BOARD numbering schemes. I use BCM  
+GPIO.setup(24, GPIO.OUT)
+GPIO.output(24, GPIO.LOW)
+
+
 print "Starting..."
 
 while True:
@@ -107,9 +117,14 @@ while True:
         if( isplaying == False ):
             mixer.music.play(-1)
             isplaying = True 
+        ''' Start speeding up the LEDs'''
+        GPIO.output(24, GPIO.HIGH) 
+            
     else:
-        mixer.music.stop()
+        mixer.music.stop()       
         isplaying = False 
+        ''' Slow down the LEDs'''
+        GPIO.output(24, GPIO.LOW) 
 
     ''' print "x: ", cur_rot_x, ", y: ", cur_rot_y, ", timer: ", timer_last_move - timer_current '''
 
