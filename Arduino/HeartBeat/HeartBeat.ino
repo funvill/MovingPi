@@ -8,7 +8,7 @@ FASTLED_USING_NAMESPACE
 
 #define DATA_PIN 6
 #define SPEED_PIN 5
-#define SETTING_NUM_PIXELS 30
+#define SETTING_NUM_PIXELS 32*5*2
 
 // Define the array of leds
 CRGB leds[SETTING_NUM_PIXELS];
